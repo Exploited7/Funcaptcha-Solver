@@ -9,18 +9,21 @@
 ![image](https://github.com/user-attachments/assets/b08ce497-fb0e-4b5c-ad15-55ded8a1441f)
 
 # Docs
-- POST | http://23.137.104.216:5000/api/funcaptcha 
-- JSON | {
+- POST  http://23.137.104.216:5000/api/funcaptcha 
+- JSON  {
   "host": "",
   "publickey": "",
   "website": "",
   "blob": ""
 }
-- host - the arkoselabs host || publickey - arkose labs public key || website - the current page that you are in || blob - if the website requires data blob
+- host - the arkoselabs host
+- publickey - arkose labs public key
+- website - the current page that you are in 
+- blob - if the website requires data blob
 
 # Notes 
 - this is suppressed solves so it may be bad for some websites , but the paid version will be good .
 - keep blob as undefined for no blob - do not keep it null .
-- 
+  
 # ❓ Need help
 - Reach us on discord or telegram : @justmanooo 
