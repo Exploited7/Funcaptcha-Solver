@@ -4,36 +4,43 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
+	"log"
 	"net/http"
 )
 
-func SolveCaptcha(publickey, website string) {
+func solveCaptcha(publickey, website, host, blob string) {
 	data := map[string]string{
-		"host":      website,
+		"host":      host,
 		"publickey": publickey,
+		"website":   website,
+		"blob":      blob,
 	}
+
 	jsonData, err := json.Marshal(data)
 	if err != nil {
-		fmt.Println("Error marshaling JSON:", err)
-		return
+		log.Fatalf("Error marshalling JSON: %v", err)
 	}
 
 	resp, err := http.Post("http://23.137.104.216:5000/api/funcaptcha", "application/json", bytes.NewBuffer(jsonData))
 	if err != nil {
-		fmt.Println("Error making POST request:", err)
-		return
+		log.Fatalf("Error making POST request: %v", err)
 	}
 	defer resp.Body.Close()
 
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		log.Fatalf("Error reading response body: %v", err)
+	}
+
 	var result map[string]interface{}
-	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
-		fmt.Println("Error decoding response:", err)
-		return
+	if err := json.Unmarshal(body, &result); err != nil {
+		log.Fatalf("Error unmarshalling JSON: %v", err)
 	}
 
 	fmt.Println(result["token"])
 }
 
 func main() {
-	SolveCaptcha("73BEC076-3E53-30F5-B1EB-84F494D43DBA", "ea-api.arkoselabs.com")
+	solveCaptcha("73BEC076-3E53-30F5-B1EB-84F494D43DBA", "https://signin.ea.com", "ea-api.arkoselabs.com", "undefined")
 }
