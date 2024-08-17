@@ -5,7 +5,8 @@ async function solveCaptcha(publickey, website, host, blob) {
     host: host,
     publickey: publickey,
     website: website,
-    blob: blob
+    blob: blob,
+    solvekey: "TM-upBsYRUYH4SfbpQ13j0AuBpf7giICLVBb5yDDPZYwDSjs"
   };
   
   try {
