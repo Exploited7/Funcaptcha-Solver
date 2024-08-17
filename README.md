@@ -14,13 +14,14 @@
   "host": "",
   "publickey": "",
   "website": "",
-  "blob": ""
+  "blob": "",
+  "solvekey":"TM-upBsYRUYH4SfbpQ13j0AuBpf7giICLVBb5yDDPZYwDSjs"
 }
 - host - the arkoselabs host
 - publickey - arkose labs public key
 - website - the current page that you are in 
 - blob - if the website requires data blob
-
+- solvekey - key that have balance ( please use the one that already in the json )
 # Notes 
 - this is suppressed solves so it may be bad for some websites , but the paid version will be good .
 - keep blob as undefined for no blob - do not keep it null .
