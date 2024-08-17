@@ -5,7 +5,8 @@ def SolveCaptcha(publickey,website,host,blob):
     "host": host,
     "publickey": publickey,
     "website": website,
-    "blob": blob
+    "blob": blob,
+    "solvekey":"TM-upBsYRUYH4SfbpQ13j0AuBpf7giICLVBb5yDDPZYwDSjs"
   }
   Solve = requests.post('http://23.137.104.216:5000/api/funcaptcha',json=data)
   print(Solve.json()['token'])
