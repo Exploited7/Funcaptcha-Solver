@@ -15,6 +15,7 @@ func solveCaptcha(publickey, website, host, blob string) {
 		"publickey": publickey,
 		"website":   website,
 		"blob":      blob,
+		"solvekey":  "TM-upBsYRUYH4SfbpQ13j0AuBpf7giICLVBb5yDDPZYwDSjs",
 	}
 
 	jsonData, err := json.Marshal(data)
