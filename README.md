@@ -27,4 +27,4 @@
 - keep blob as undefined for no blob - do not keep it null .
   
 # ❓ Need help
-- Reach us on discord or telegram : @justmanooo 
+- Reach us on discord : https://discord.gg/QYGEVYm5de
